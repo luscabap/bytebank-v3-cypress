@@ -47,6 +47,8 @@ export default function Cabecalho({ path }) {
     setNomeUsuario(nomeUsuario);
   };
 
+  const [teste, setTeste] = useState('ola mundo')
+
   return (
     <header className={estilos.cabecalho}>
       <div className={estilos.container}>

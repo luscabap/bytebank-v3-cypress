@@ -26,7 +26,7 @@ export default function Inicio() {
             <div className={estilos.vantagens__itens}>
               <div className={estilos.vantagens__item}>
                 <img src={presente} alt="ícone de um presente" />
-                <h3>Conta e cartão gratuitos</h3>
+                <h3 data-cy="desafio">Conta e cartão gratuitos</h3>
                 <p>
                   Isso mesmo, nossa conta é digital, sem custo fixo e mais que
                   isso: sem tarifa de manutenção.
