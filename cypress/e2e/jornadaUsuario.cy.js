@@ -18,4 +18,23 @@ describe("Jornadas de usuário", () => {
         cy.getByDataTest('botao-sair').click();
         cy.location("pathname").should('eq', '/')
     })
+    it.only("Deve permitir se cadastrar, logar na conta e ser direcionada a página Home.", () => {
+        const email = "bruno4@gmail.com";
+        const senha = "123"
+        cy.getByDataTest("botao-cadastro").click()
+        cy.getByDataTest("nome-input").type("Bruno");
+        cy.getByDataTest("email-input").type(email);
+        cy.getByDataTest("senha-input").type(senha);
+        cy.getByDataTest("checkbox-input").click();
+        cy.getByDataTest("botao-enviar").click();
+        cy.getByDataTest("mensagem-sucesso").should("exist").and("have.text", "Usuário cadastrado com sucesso!");
+        cy.location("pathname").should("eq", "/")
+
+        cy.getByDataTest("botao-login").click();
+        cy.getByDataTest("email-input").type(email);
+        cy.getByDataTest("senha-input").type(senha);
+        cy.getByDataTest("botao-enviar").click();
+
+        cy.location("pathname").should("eq", "/home");
+    })
 })
