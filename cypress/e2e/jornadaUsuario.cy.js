@@ -1,7 +1,8 @@
 describe("Jornadas de usuário", () => {
     beforeEach(() => {
         cy.visit("/")
-    })
+    });
+
     it("Deve permitir que o usuário acesse a aplicação, realize uma transação e faça um logout.", () => {
         cy.getByDataTest("botao-login").click();
         cy.getByDataTest("email-input").type("lucas@gmail.com");
@@ -17,8 +18,9 @@ describe("Jornadas de usuário", () => {
 
         cy.getByDataTest('botao-sair').click();
         cy.location("pathname").should('eq', '/')
-    })
-    it.only("Deve permitir se cadastrar, logar na conta e ser direcionada a página Home.", () => {
+    });
+
+    it("Deve permitir se cadastrar, logar na conta e ser direcionada a página Home.", () => {
         const email = "bruno4@gmail.com";
         const senha = "123"
         cy.getByDataTest("botao-cadastro").click()
@@ -36,5 +38,5 @@ describe("Jornadas de usuário", () => {
         cy.getByDataTest("botao-enviar").click();
 
         cy.location("pathname").should("eq", "/home");
-    })
+    });
 })
